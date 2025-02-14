@@ -54,5 +54,36 @@
 <body>
 <p> Iracema Valenzuela L
 </p>
+
+  <div class="slide-container">
+        <div class="slide active"> <h2>Bienvenidos</h2> <p>Introducción a la presentación</p> </div>
+        <div class="slide"> <h2>Contenido</h2> <p>Detalles sobre el tema a tratar</p> </div>
+        <div class="slide"> <h2>Conclusión</h2> <p>Resumen de los puntos clave</p> </div>
+        <div class="nav-buttons">
+            <button onclick="prevSlide()">Anterior</button>
+            <button onclick="nextSlide()">Siguiente</button>
+        </div>
+    </div>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+        
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            slides[index].classList.add("active");
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    </script>
+
+
 </body>
 </html>
